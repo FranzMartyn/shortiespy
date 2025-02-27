@@ -1,6 +1,6 @@
-# shortiespy
+# shorties
 
-shortiespy is a simple URL shortener written in python
+shorties is a simple URL shortener written in python
 
 ## Requirements
 
@@ -11,7 +11,7 @@ shortiespy is a simple URL shortener written in python
 ## Installation
 
 ```
-git clone https://github.com/FranzMartyn/shorties
+git clone https://github.com/FranzMartyn/shortiespy
 pip install -r requirements.txt
 ```
 
