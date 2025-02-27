@@ -60,8 +60,6 @@ def add():
         json.dump(all_urls, json_file_write)
 
     OPEN_URL_IN_ANOTHER_TAB = True
-    print(f"{url_id=}")
-    print(f"{all_urls=}")
     return flask.render_template("successful.html",
                                  shortie=flask.url_for(
                                      "get",
