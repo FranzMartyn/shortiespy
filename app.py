@@ -67,7 +67,7 @@ def add():
                                      _external=OPEN_URL_IN_ANOTHER_TAB))
 
 
-@app.route("/g/<urlid>", methods=["GET"])
+@app.route("/s/<urlid>", methods=["GET"])
 def get(urlid):
     """The endpoint of the shortened links."""
     with open(JSON_FILE, "r", encoding="utf8") as json_file_read:
@@ -75,19 +75,17 @@ def get(urlid):
     url = all_urls.get(urlid)
 
     if not url:
-        return flask.render_template("badshorie.html",
+        return flask.render_template("badshortie.html",
                                      link=flask.url_for("new"))
     return flask.redirect(url)
 
 @app.before_request
 def check_if_site_exists():
-    if flask.request.endpoint is None:
-        flask.abort(404)
-
-@app.errorhandler(404)
-def site_not_found():
-    return flask.render_template("badsite.html", flask.url_for(new))
-
+    print("before request")
+    print(flask.request.endpoint)
+    if not flask.request.endpoint:
+        new_site = flask.url_for("new")
+        return flask.render_template("badsite.html", link=new_site), 404
 
 if __name__ == "__main__":
     app.run("localhost", 80, debug=False)
