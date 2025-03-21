@@ -2,9 +2,9 @@
 
 import json  # Everything is stored inside ./data/data.json
 import uuid  # For creating the ids at the end of the url
-import requests  # To check whether the URLs actually exist or not
 
 import flask
+import requests  # To check whether the URLs actually exist or not
 
 
 app = flask.Flask(__name__, static_folder="static", template_folder="static")
